@@ -13,3 +13,8 @@ jobs:
       - run: sudo apt install -y openjdk-17-jdk make
       - run: java --version
       - run: make
+      - run: |
+          git config --local user.email "ucum@ucum.org"
+          git config --local user.name "UCUM Worker"
+          git commit -m 'Generated'
+          git push
