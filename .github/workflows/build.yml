@@ -16,5 +16,5 @@ jobs:
       - run: |
           git config --local user.email "ucum@ucum.org"
           git config --local user.name "UCUM Worker"
-          git commit -m 'Generated'
+          git commit -am 'Generated'
           git push
