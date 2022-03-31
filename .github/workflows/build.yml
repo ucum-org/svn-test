@@ -10,6 +10,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - run: sudo apt install -y openjdk-17-jdk
+      - run: sudo apt install -y openjdk-17-jdk make
       - run: java --version
-      - run: Make
+      - run: make
