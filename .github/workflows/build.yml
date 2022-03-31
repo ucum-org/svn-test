@@ -12,3 +12,4 @@ jobs:
       - uses: actions/checkout@v3
       - run: sudo apt install -y openjdk-17-jdk
       - run: java --version
+      - run: java -jar saxon8.jar -?
