@@ -17,6 +17,6 @@ ucum-cs.units: ucum-source.xml ucum-oldfile.xsl
 ucum-ci.units: ucum-source.xml ucum-oldfile.xsl
 	$(XSLTPROC) -o $@ $^ case="insensitive"
 
-clean:
-	rm -f *~ ucum.xml ucum-cs.units ucum-ci.units ucum.html ucum-essence.xml
+#clean:
+#	rm -f *~ ucum.xml ucum-cs.units ucum-ci.units ucum.html ucum-essence.xml
 
