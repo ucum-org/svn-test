@@ -18,7 +18,7 @@ Regenstrief Institute, Inc. All Rights Reserved.
 Revision: $Id: xml-verbatim.css,v 1.1.4.1 2004/11/12 23:44:53 gschadow Exp $
 */
 
-.xml-verbatim-default          { color: #333333; 
+.xml-verbatim-default          { color: #333; 
 			         background-color: #ffffff; 
 				 font-family: sans-serif;
 				 cursor: pointer; }
