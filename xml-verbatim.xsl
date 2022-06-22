@@ -23,7 +23,6 @@ Regenstrief Institute, Inc. All Rights Reserved.
 
    <xsl:output method="html" omit-xml-declaration="no" indent="yes"/>
    <xsl:strip-space elements="*"/>
-
    <xsl:template match="/">
       <html>
         <head>
