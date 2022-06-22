@@ -20,7 +20,6 @@ The Initial Developer of the Original Code is Gunther Schadow.
 Portions created by Initial Developer are Copyright (C) 2002-2004
 Regenstrief Institute, Inc. All Rights Reserved.
 
-Revision: $Id: xml-verbatim.xsl,v 1.2.4.1 2004/11/12 23:44:53 gschadow Exp $
 -->
 
    <xsl:output method="html" omit-xml-declaration="no" indent="yes"/>
