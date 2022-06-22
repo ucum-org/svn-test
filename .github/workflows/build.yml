@@ -1,20 +1,33 @@
-name: Build
+on: create
 
-on:
-  pull_request:
-    branches: [master]
-    types: [closed]
-
+name: Release
 jobs:
-  build:
+  release:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout Code
+        uses: actions/checkout@v3
+      - name: Create Release
+        id: create-release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with: 
+          tag_name: ${{ github.ref }}
+          release_name: Release...
+          prerelease: false
       - run: sudo apt install -y openjdk-17-jdk make
       - run: java --version
       - run: make
-      - run: |
-          git config --local user.email "ucum@ucum.org"
-          git config --local user.name "UCUM Worker"
-          git commit -am 'Generated'
-          git push
+      - name: Upload Release Assets
+        id: upload-release-assets
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create-release.outputs.upload_url }}
+          asset_path: ./name-here.zip
+          asset_name: name-here.zip
+          asset_content_type: application/zip
+
+
