@@ -19,7 +19,6 @@ The Original Code is all this file.
 The Initial Developer of the Original Code is Gunther Schadow.
 Portions created by Initial Developer are Copyright (C) 2002-2004
 Regenstrief Institute, Inc. All Rights Reserved.
-
 -->
 
    <xsl:output method="html" omit-xml-declaration="no" indent="yes"/>
