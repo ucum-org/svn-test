@@ -15,7 +15,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with: 
-          tag_name: ${{ github.ref }}
+          tag_name: ${{ github.event.release.tag_name }}
           release_name: Release...
           prerelease: false
       - name: Upload Asset 1
@@ -25,9 +25,9 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create-release.outputs.upload_url }}
-          asset_path: ./name1.zip
-          asset_name: name1.zip
-          asset_content_type: application/zip
+          asset_path: ./ucum.html
+          asset_name: ucum_.html
+          asset_content_type: text/html
       - name: Upload Asset 2
         id: upload-release-asset2
         uses: actions/upload-release-asset@v1
@@ -35,8 +35,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create-release.outputs.upload_url }}
-          asset_path: ./name2.zip
-          asset_name: name2.zip
-          asset_content_type: application/zip
+          asset_path: ./ucum.xml
+          asset_name: ucum_.xml
+          asset_content_type: text/xml
 
 
