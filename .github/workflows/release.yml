@@ -1,42 +1,46 @@
-on: 
-  release:
-    types: [published]
-
 name: Release
+
+on: 
+  push:
+    tags:
+      - '*'
+
 jobs:
-  release:
+  build_release:
+    name: Build release
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Code
-        uses: actions/checkout@v3
-      - name: Build Artifacts
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Build
         run: sudo apt install -y openjdk-17-jdk make && make
-      - name: Create Release
-        id: create-release
+      - name: Create release
         uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        id: create_release
         with: 
           tag_name: release-${{ github.ref }}
-          release_name: Release...
+          release_name: UCUM (Version)
           prerelease: false
-      - name: Upload Asset 1
-        id: upload-release-asset1
+          draft: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Upload ucum.html
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          upload_url: ${{ steps.create-release.outputs.upload_url }}
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: ./ucum.html
           asset_name: ucum_.html
           asset_content_type: text/html
-      - name: Upload Asset 2
-        id: upload-release-asset2
+      - name: Upload ucum.xml
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          upload_url: ${{ steps.create-release.outputs.upload_url }}
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: ./ucum.xml
           asset_name: ucum_.xml
           asset_content_type: text/xml
